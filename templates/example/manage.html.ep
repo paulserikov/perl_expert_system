@@ -1,0 +1,71 @@
+% layout 'default';
+% title 'Welcome';
+
+<div class="container">
+	<h1><a href="manage">ACELab expert system - knowledge engineer console</a></h1>
+
+	<div class="row">
+		<div class="col-md-6">
+		<h2>Tree edit</h2>
+			<div id="jstree"></div>
+			<div class="btn-group">
+				<button type="button" id="button-expand" class="btn btn-info">Expand all</button>
+				<button type="button" id="button-collapse" class="btn btn-info">Collapse all</button>
+			</div>
+		</div>
+
+		<div class="col-md-6" id="property_edit">
+			
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>New rule:</h2>
+					Name of rule: <input type="text" class="form-control">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<h3>Conditions <button class="glyphicon glyphicon-plus" id="add_condition"></button></h3>
+					<table class="table table-condensed">
+						<thead>
+							<tr>
+							   <th class="col-md-4">part</th><th class="col-md-4">attribute</th><th class="col-md-4">value</th>
+							</tr>
+						</thead>
+						 <tbody id="append-condition">
+						 </tbody>
+					</table>
+				</div>
+				<div class="col-md-6">
+					<h3>Actions <button class="glyphicon glyphicon-plus" id="add_action"></button></h3>
+					<table class="table table-condensed">
+						<thead>
+							<tr>
+							   <th class="col-md-4">part</th><th class="col-md-4">attribute</th><th class="col-md-4">value</th>
+							</tr>
+						</thead>
+						 <tbody id="append-action">
+						 </tbody>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<button type="button" class="btn btn-info">Save rule</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Current rules:</h2>
+			HDD.Manufacturer = “Hitachi” => Adaptives.Parent_part = “ROM”
+		</div>
+	</div>
+
+</div>

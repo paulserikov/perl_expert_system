@@ -1,0 +1,43 @@
+function make_tree(data) {	
+		console.log (data);
+		$('#jstree2').jstree({
+		"core" : {
+		    "data" :  data
+		    },
+		"plugins" : [ "dnd", "sort", "contextmenu" ]
+		});
+	}
+
+
+    $.ajax({ 
+    	type: "GET", 
+    	url: "http://localhost:3000/api",
+        datatype: 'json',
+        success: function (data){
+        	// console.log(data);
+        	make_tree(data);
+        }
+    });
+
+
+
+
+                    'data' : function (node) {
+                    console.log(node);
+                    var j = JSON.stringify(node);
+                    // node.each(function() {
+                    //  console.log(node.id);
+                    // });
+                    return j;
+                }
+
+
+$(document).ready(function() {
+    $('#jstree2').jstree({
+        'core' : {
+            'data' : {
+                'url' : 'http://localhost:3000/api.json',
+            }
+        }
+    });
+});

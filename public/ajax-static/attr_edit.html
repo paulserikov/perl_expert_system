@@ -1,0 +1,32 @@
+<div class="col-md-6" id="property_edit">
+	<h2>Attribute edit</h2>
+
+	<p><button type="button" id="button-expand" class="btn btn-info">Change type to part</button></p>
+	<p>Бинарный? <input type="checkbox" id="is-attr-binary"></p>
+
+	<div id="binary_choice">
+
+		<h3>Множество значений <button class="glyphicon glyphicon-plus" id="add_value"></button></h3>
+		<div>
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th class="col-md-3">value</th><th class="col-md-9">description</th>
+					</tr>
+				</thead>
+				<tbody id="values_edit">
+					<tr>
+						<td><input type="text" class="form-control"></td><td><input type="text" class="form-control"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<p>Заметки к тому как проверить:</p>
+		<textarea class="form-control" rows="3" name="text"></textarea>
+
+		<p>Человекопонятный вопрос для wizard'a:</p>
+		<textarea class="form-control" rows="2" name="text"></textarea>
+	</div>
+
+</div>
