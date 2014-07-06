@@ -16,3 +16,20 @@ run ./make_orm.sh. It will update module /lib/AceExpert/Schema
 
 To project DB correctly it can help:
 http://hitechnotes.blogspot.ru/2014/05/blog-post.html
+
+
+Documentation
+http://redmine.fablab61.ru/projects/perl/wiki/Recipies
+
+
+API
+
+/api/all_items - show all elements tree
+Example of answer (json): 
+[
+{"id":"1","parent":"#","text":"HDD"},
+{"parent":"1","id":"2","text":"HDA"},
+{"text":"PCB","parent":"2","id":"3"}
+]
+
+/api/add_item - add one item

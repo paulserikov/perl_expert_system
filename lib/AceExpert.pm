@@ -5,21 +5,30 @@ use Mojo::Base 'Mojolicious';
 use Data::Dumper;
 use AceExpert::Schema;
 
-# This method will run once at server start
+# Adding own method to app
+
+has dbh => sub {
+  my $self = shift;
+  my $login = $self->plugin('Config')->{login};
+  my $password = $self->plugin('Config')->{password};
+  my $database = $self->plugin('Config')->{database};
+  my $host = $self->plugin('Config')->{host};
+  my $port = $self->plugin('Config')->{port};
+  my $db_type = $self->plugin('Config')->{db_type};
+  my $dsn = "dbi:$db_type:database=$database;host=$host;port=$port";
+  my $db_connection = AceExpert::Schema->connect($dsn, $login, $password);
+  return $db_connection;
+};
+
+
 sub startup {
   my $self = shift;
-  my $config = $self->plugin('Config');
-  warn Dumper $config->{foo};
-  my $schema = AceExpert::Schema->connect($config->{dsn}, $config->{user}, $config->{passw});
-  $schema->storage->debug(1);
-  
-  # Router
   my $r = $self->routes;
   # Normal route to controller
   $r->get('/')->to('example#welcome');
   $r->get('/manage')->to('example#manage');
 
-  $r->get('/api/all_items')->to('example#json_all_items');
+  $r->get('/api/all_items')->to('example#all_items_json');
   $r->post('/api/add_item')->to('example#add_item');
   $r->post('/api/rename_item')->to('example#rename_item');	# move + rename
   $r->post('/api/delete_item')->to('example#delete_item');
